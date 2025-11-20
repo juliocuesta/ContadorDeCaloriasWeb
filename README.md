@@ -71,10 +71,7 @@ La app está diseñada con las últimas tecnologías de Apple, incluyendo Swift 
 
 ## 🛠️ Requisitos
 
-- **Xcode**: 26.0+
-- **Swift**: 6.2+
 - **iOS**: 26.0+
-- **macOS**: 26.0+ (para desarrollo)
 
 ### API Keys (Opcional)
 
@@ -83,45 +80,6 @@ La app funciona en **modo invitado** sin configuración, pero puedes usar tus pr
 - [OpenAI API Key](https://platform.openai.com/api-keys) - GPT-4 Vision
 - [Google AI Studio](https://aistudio.google.com/app/apikey) - Gemini
 - [Perplexity API](https://www.perplexity.ai/settings/api) - Sonar Pro
-
-## 📐 Arquitectura
-
-### Patrón MVVM + Clean Architecture
-
-```
-┌─────────────────────────────────────────────────────┐
-│                  Presentation Layer                 │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────┐ │
-│  │  SwiftUI     │  │  ViewModels  │  │  Views   │ │
-│  │  @Observable │  │  @MainActor  │  │          │ │
-│  └──────────────┘  └──────────────┘  └──────────┘ │
-└─────────────────────────────────────────────────────┘
-                         ▼
-┌─────────────────────────────────────────────────────┐
-│                   Domain Layer                      │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────┐ │
-│  │  Entities    │  │  Use Cases   │  │ Protocols│ │
-│  │  FoodItem    │  │  Business    │  │          │ │
-│  └──────────────┘  └──────────────┘  └──────────┘ │
-└─────────────────────────────────────────────────────┘
-                         ▼
-┌─────────────────────────────────────────────────────┐
-│                    Data Layer                       │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────┐ │
-│  │ Repositories │  │  Services    │  │ SwiftData│ │
-│  │              │  │  API Clients │  │          │ │
-│  └──────────────┘  └──────────────┘  └──────────┘ │
-└─────────────────────────────────────────────────────┘
-```
-
-### Componentes Principales
-
-- **AppFactory**: Dependency Injection Container
-- **NavigationCoordinator**: Gestión centralizada de navegación
-- **ViewModels**: `@Observable` con Swift Concurrency
-- **Repositories**: Abstracción de acceso a datos
-- **Services**: Integración con APIs externas
-- **SwiftData**: Persistencia local moderna
 
 ## 🔧 Configuración
 
@@ -165,69 +123,6 @@ La app funciona en **modo invitado** sin configuración, pero puedes usar tus pr
 2. Describe el alimento (ej: "100g de pollo asado")
 3. Perplexity analiza y genera la ficha nutricional
 
-## 🧪 Testing
-
-### Ejecutar Tests
-
-```bash
-# Todos los tests
-xcodebuild test \
-  -project ContadorDeCalorias.xcodeproj \
-  -scheme ContadorDeCalorias \
-  -destination 'platform=iOS Simulator,name=iPhone 17'
-
-# Tests unitarios específicos
-xcodebuild test \
-  -only-testing:ContadorDeCaloriasTests/SecureEncryptionTests
-
-# Tests de UI
-xcodebuild test \
-  -only-testing:ContadorDeCaloriasUITests
-```
-
-### Framework de Testing
-
-- **Swift Testing**: Tests unitarios y de integración
-- **XCUITest**: Tests de interfaz de usuario
-- **Cobertura mínima**: 85%
-
-### Estructura de Tests
-
-```
-ContadorDeCaloriasTests/
-├── Domain/              # Lógica de negocio
-├── Data/                # Repositorios y servicios
-├── UseCases/            # Casos de uso
-├── ViewModels/          # ViewModels
-└── Mocks/               # Objetos mock
-
-ContadorDeCaloriasUITests/
-├── ServiceSelectorGuestModeUITests.swift
-├── SettingsIAUITests.swift
-└── ...
-```
-
-## 🤝 Contribución
-
-Las contribuciones son bienvenidas. Por favor:
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add: Amazing feature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-### Guía de Estilo
-
-- **SwiftLint**: Ejecuta antes de commit
-- **Indentación**: 4 espacios
-- **Línea máxima**: 120 caracteres
-- **Naming**: UpperCamelCase para tipos, lowerCamelCase para variables
-- **Commits**: Conventional Commits (feat, fix, refactor, docs, test)
-
-## 📄 Licencia
-
-Este proyecto está bajo la licencia MIT. Ver [LICENSE](LICENSE) para más detalles.
 
 ## 🙏 Créditos
 
