@@ -84,39 +84,6 @@ La app funciona en **modo invitado** sin configuración, pero puedes usar tus pr
 - [Google AI Studio](https://aistudio.google.com/app/apikey) - Gemini
 - [Perplexity API](https://www.perplexity.ai/settings/api) - Sonar Pro
 
-## 🚀 Instalación
-
-### 1. Clonar el repositorio
-
-```bash
-git clone https://github.com/juliocuesta/ContadorDeCalorias.git
-cd ContadorDeCalorias
-```
-
-### 2. Abrir en Xcode
-
-```bash
-open ContadorDeCalorias.xcodeproj
-```
-
-### 3. Configurar equipo de desarrollo
-
-1. Selecciona el proyecto en el navegador
-2. En **Signing & Capabilities**, selecciona tu equipo
-3. Cambia el Bundle ID si es necesario
-
-### 4. Compilar y ejecutar
-
-```bash
-# Build desde terminal
-xcodebuild build \
-  -project ContadorDeCalorias.xcodeproj \
-  -scheme ContadorDeCalorias \
-  -destination 'platform=iOS Simulator,name=iPhone 17'
-
-# O presiona Cmd+R en Xcode
-```
-
 ## 📐 Arquitectura
 
 ### Patrón MVVM + Clean Architecture
